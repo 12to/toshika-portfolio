@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toshika Ahlawat - Data Analyst | Business Intelligence | Power BI | FinTech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(10, 14, 39, 0.95);
+            padding: 60px 0 80px;
+            border-bottom: 2px solid #2a5bd7;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #4a9eff 0%, #2a5bd7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .role-title {
+            font-size: 1.8em;
+            color: #4a9eff;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .headline {
+            font-size: 1.3em;
+            color: #a0aec0;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .location {
+            font-size: 1.1em;
+            color: #718096;
+            margin-top: 10px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #4a9eff;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .about-content {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #cbd5e0;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1e2a4a 0%, #2d3a5f 100%);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #2a5bd7;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(42, 91, 215, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 700;
+            color: #4a9eff;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .expertise-card {
+            background: rgba(30, 42, 74, 0.6);
+            padding: 35px;
+            border-radius: 10px;
+            border-left: 4px solid #4a9eff;
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            background: rgba(30, 42, 74, 0.9);
+            border-left-width: 6px;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.5em;
+            color: #4a9eff;
+            margin-bottom: 15px;
+        }
+
+        .expertise-card p {
+            color: #cbd5e0;
+            line-height: 1.7;
+        }
+
+        .value-props {
+            max-width: 900px;
+            margin: 40px auto 0;
+        }
+
+        .value-item {
+            background: rgba(30, 42, 74, 0.5);
+            padding: 25px 35px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 3px solid #2a5bd7;
+        }
+
+        .value-item h3 {
+            color: #4a9eff;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .value-item p {
+            color: #cbd5e0;
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 40px auto 0;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #2a5bd7;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            padding-left: 90px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 42px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #4a9eff;
+            border: 3px solid #0a0e27;
+        }
+
+        .timeline-date {
+            color: #4a9eff;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .timeline-role {
+            font-size: 1.4em;
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .timeline-company {
+            color: #a0aec0;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .timeline-description {
+            color: #cbd5e0;
+            line-height: 1.7;
+        }
+
+        .timeline-description ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .timeline-description li {
+            margin-bottom: 10px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #2a5bd7 0%, #4a9eff 100%);
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(42, 91, 215, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(42, 91, 215, 0.5);
+        }
+
+        .objective-box {
+            background: linear-gradient(135deg, #1e2a4a 0%, #2d3a5f 100%);
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid #2a5bd7;
+            max-width: 900px;
+            margin: 30px auto 0;
+            text-align: center;
+        }
+
+        .objective-box p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: #a0aec0;
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .role-title {
+                font-size: 1.4em;
+            }
+
+            .headline {
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .stats-grid, .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-item::before {
+                left: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Toshika Ahlawat</h1>
+                <div class="role-title">Data Analyst | Business Intelligence Specialist</div>
+                <div class="headline">Data Analytics | Business Intelligence | Power BI | FinTech</div>
+                <div class="location">Noida, India</div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Results-driven Data Analyst with 2+ years of experience transforming complex datasets into actionable business intelligence that drives revenue growth and operational excellence. Specialized in building enterprise-grade analytics solutions for the FinTech sector, with proven expertise in Power BI, SQL, and automated reporting systems. My work has directly contributed to reducing churn by 12%, decreasing reporting defects by 25%, and accelerating decision-making across multiple business units through real-time dashboards and data-driven insights.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Data Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-label">Reporting Time Reduced</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Business Units Served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise">
+        <div class="container">
+            <h2>Core Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Business Intelligence & Dashboards</h3>
+                    <p>Design and deployment of automated Power BI dashboards using advanced DAX and Power Query. Building real-time analytics solutions that enable executive-level decision-making across product, operations, and channel partner performance.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Data Engineering & ETL</h3>
+                    <p>Architecting scalable ETL workflows that process large-scale datasets with 98%+ accuracy. Expertise in SQL optimization, data validation, and automated pipeline development that reduces manual intervention by 30%.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Product Analytics & Insights</h3>
+                    <p>End-to-end analytics for product launches, user adoption tracking, and funnel optimization. Translating business requirements into measurable KPIs and delivering insights that reduce onboarding bottlenecks by 25%.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Stakeholder Collaboration</h3>
+                    <p>Partnering with cross-functional teams including product, business, and operations to gather requirements, align on metrics, and deliver analytics solutions that drive measurable business impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="value">
+        <div class="container">
+            <h2>What I Bring to the Table</h2>
+            <div class="value-props">
+                <div class="value-item">
+                    <h3>Business-Aligned Analytics</h3>
+                    <p>I don't just analyze data—I translate it into strategic recommendations that align with business objectives, revenue targets, and operational priorities.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Automation-First Mindset</h3>
+                    <p>Passionate about eliminating manual processes through intelligent automation, enabling teams to focus on strategy rather than repetitive reporting tasks.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Rapid Execution</h3>
+                    <p>Known for delivering high-quality analytics solutions under tight deadlines while maintaining accuracy and attention to detail that meets enterprise standards.</p>
+                </div>
+                <div class="value-item">
+                    <h3>Cross-Functional Impact</h3>
+                    <p>Experience working with diverse stakeholders—from product managers to C-level executives—ensuring analytics solutions serve the entire organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work-style">
+        <div class="container">
+            <h2>Work Style</h2>
+            <div class="about-content">
+                <p>I approach every project with a blend of analytical rigor and business pragmatism. My process begins with deep requirement gathering to understand not just what stakeholders ask for, but what they truly need. I prioritize data quality and validation at every step, ensuring that insights are trustworthy and actionable. Collaboration is central to my work—I believe the best analytics solutions emerge from close partnerships with business teams who understand context and analysts who understand data. I'm comfortable navigating ambiguity, making data-driven recommendations even when complete information isn't available, and iterating quickly based on feedback.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="objective">
+        <div class="container">
+            <h2>Career Objective</h2>
+            <div class="objective-box">
+                <p>To leverage my expertise in data analytics and business intelligence within a high-growth technology or financial services organization where I can drive measurable business outcomes through advanced analytics, automation, and strategic insights. I'm seeking opportunities to work on complex, large-scale data challenges alongside world-class teams at companies that value data-driven decision-making and continuous innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">September 2023 – Present</div>
+                    <div class="timeline-role">Data Analyst</div>
+                    <div class="timeline-company">RuLoans Distribution Services Pvt. Ltd.</div>
+                    <div class="timeline-description">
+                        <p>Driving data-driven decision-making across lending operations, channel partner management, and product analytics in a fast-paced FinTech environment.</p>
+                        <ul>
+                            <li>Designed and deployed automated Power BI dashboards using advanced DAX and Power Query, serving 8+ business units with real-time performance metrics</li>
+                            <li>Built comprehensive analytics for contest tracking, disbursal monitoring, and channel partner performance evaluation</li>
+                            <li>Processed and validated large-scale SQL datasets with 98%+ accuracy, ensuring data integrity across critical business operations</li>
+                            <li>Automated ETL workflows that reduced manual reporting time by 30%, freeing up teams to focus on strategic initiatives</li>
+                            <li>Collaborated directly with product and business teams for requirement gathering, KPI definition, and analytics delivery</li>
+                            <li>Achieved 12% reduction in customer churn and 25% decrease in reporting defects through proactive data quality initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Key Project: RuConnect App</div>
+                    <div class="timeline-role">Data-Driven Product Launch</div>
+                    <div class="timeline-company">RuLoans Distribution Services</div>
+                    <div class="timeline-description">
+                        <p>Led end-to-end analytics for a strategic loan product launch, tracking user adoption and optimizing onboarding flows.</p>
+                        <ul>
+                            <li>Built analytics modules covering onboarding, conversion funnel, and adoption metrics</li>
+                            <li>Identified critical bottlenecks in user journeys and provided actionable recommendations</li>
+                            <li>Reduced onboarding completion time by 25% through data-driven process improvements</li>
+                            <li>Delivered executive dashboards that enabled real-time monitoring of product health and user engagement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Key Project: Partner Intelligence Dashboard</div>
+                    <div class="timeline-role">Enterprise Analytics Platform</div>
+                    <div class="timeline-company">RuLoans Distribution Services</div>
+                    <div class="timeline-description">
+                        <p>Architected a centralized business intelligence platform integrating partner performance, disbursal data, and target tracking across the organization.</p>
+                        <ul>
+                            <li>Consolidated data from 8+ business units into a unified Power BI platform</li>
+                            <li>Integrated partner performance metrics, disbursal tracking, and goal monitoring</li>
+                            <li>Improved performance monitoring efficiency by 20% through automated reporting and alerts</li>
+                            <li>Enabled data democratization, empowering business teams to self-serve insights</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills & Tools</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">DAX</span>
+                <span class="skill-tag">Power Query</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">CTEs</span>
+                <span class="skill-tag">Window Functions</span>
+                <span class="skill-tag">Advanced Excel</span>
+                <span class="skill-tag">ETL Automation</span>
+                <span class="skill-tag">Data Visualization</span>
+                <span class="skill-tag">Requirement Gathering</span>
+                <span class="skill-tag">Stakeholder Management</span>
+                <span class="skill-tag">Process Mapping</span>
+                <span class="skill-tag">KPI Tracking</span>
+                <span class="skill-tag">Product Analytics</span>
+                <span class="skill-tag">Reporting Automation</span>
+                <span class="skill-tag">Business Intelligence</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 – 2023</div>
+                    <div class="timeline-role">Master of Computer Applications (MCA)</div>
+                    <div class="timeline-description">
+                        <p>Advanced coursework in data structures, database management, and business analytics.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018 – 2021</div>
+                    <div class="timeline-role">Bachelor of Computer Applications (BCA)</div>
+                    <div class="timeline-description">
+                        <p>Foundation in computer science, programming, and analytical problem-solving.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Toshika Ahlawat. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
