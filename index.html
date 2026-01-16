@@ -248,14 +248,15 @@ a:hover{
 .hero-image{
   text-align: center;
 }
-
 .hero-image img{
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  max-width: 100%;
+  aspect-ratio: 1/1;        /* keeps perfect square */
   border-radius: 50%;
   border: 6px solid var(--teal);
-  box-shadow: 0 10px 40px rgba(255,107,157,0.4), 0 0 60px rgba(255,107,157,0.2);
-  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(255,107,157,0.25);
+  object-fit: cover;        /* keeps photo filled */
+  object-position: top center; /* keeps your face visible */
   display: block;
   margin: 0 auto;
 }
