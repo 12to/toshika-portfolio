@@ -1,791 +1,983 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toshika Ahlawat - Data Analyst</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
-            color: #e0e6ed;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            z-index: 0;
-            opacity: 0.3;
-        }
-
-        .bg-animation span {
-            position: absolute;
-            display: block;
-            width: 20px;
-            height: 20px;
-            background: rgba(16, 185, 129, 0.3);
-            animation: float 15s infinite ease-in-out;
-            border-radius: 50%;
-        }
-
-        .bg-animation span:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .bg-animation span:nth-child(2) { left: 20%; animation-delay: 2s; }
-        .bg-animation span:nth-child(3) { left: 30%; animation-delay: 4s; }
-        .bg-animation span:nth-child(4) { left: 40%; animation-delay: 6s; }
-        .bg-animation span:nth-child(5) { left: 50%; animation-delay: 8s; }
-        .bg-animation span:nth-child(6) { left: 60%; animation-delay: 10s; }
-        .bg-animation span:nth-child(7) { left: 70%; animation-delay: 12s; }
-        .bg-animation span:nth-child(8) { left: 80%; animation-delay: 14s; }
-        .bg-animation span:nth-child(9) { left: 90%; animation-delay: 16s; }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-                transform: translateY(-100vh) rotate(360deg);
-            }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Navigation */
-        nav {
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #10b981;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #e0e6ed;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #10b981;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 2px solid #10b981;
-            border-radius: 50px;
-            color: #10b981;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        h1 {
-            font-size: 80px;
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #10b981 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: 32px;
-            color: #10b981;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .intro {
-            font-size: 20px;
-            color: #94a3b8;
-            max-width: 700px;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #10b981;
-            border: 2px solid #10b981;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(16, 185, 129, 0.1);
-            transform: translateY(-3px);
-        }
-
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .stat-card {
-            background: rgba(16, 185, 129, 0.05);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .stat-card:hover {
-            background: rgba(16, 185, 129, 0.1);
-            transform: translateY(-5px);
-            border-color: #10b981;
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: bold;
-            color: #10b981;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 0;
-        }
-
-        h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .section-subtitle {
-            color: #94a3b8;
-            font-size: 18px;
-            margin-bottom: 50px;
-        }
-
-        /* Experience Card */
-        .experience-card {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
-            border: 2px solid rgba(16, 185, 129, 0.3);
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 30px;
-            transition: all 0.3s;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-10px);
-            border-color: #10b981;
-            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.2);
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .exp-title {
-            font-size: 32px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .exp-company {
-            font-size: 20px;
-            color: #10b981;
-        }
-
-        .exp-date {
-            color: #94a3b8;
-            font-size: 16px;
-        }
-
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .metric {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .metric-value {
-            font-size: 28px;
-            font-weight: bold;
-            color: #10b981;
-        }
-
-        .metric-label {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-top: 5px;
-        }
-
-        .achievements {
-            margin-top: 30px;
-        }
-
-        .achievement {
-            display: flex;
-            gap: 15px;
-            padding: 20px;
-            margin-bottom: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            border-left: 3px solid #10b981;
-            transition: all 0.3s;
-        }
-
-        .achievement:hover {
-            background: rgba(16, 185, 129, 0.1);
-            transform: translateX(10px);
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            gap: 40px;
-        }
-
-        .skill-category h3 {
-            color: #10b981;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .skill-tag {
-            padding: 12px 24px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 25px;
-            color: #10b981;
-            font-size: 14px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .skill-tag:hover {
-            background: #10b981;
-            color: #0a0e27;
-            transform: translateY(-3px);
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #1a1f3a 0%, #0a0e27 100%);
-            border: 2px solid #10b981;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            animation: modalSlideIn 0.3s ease-out;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: transparent;
-            border: none;
-            color: #10b981;
-            font-size: 30px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .modal-close:hover {
-            transform: rotate(90deg);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            margin: 15px 0;
-            background: rgba(16, 185, 129, 0.05);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .contact-item:hover {
-            background: rgba(16, 185, 129, 0.1);
-            border-color: #10b981;
-        }
-
-        .contact-item .icon {
-            font-size: 30px;
-        }
-
-        .contact-item a {
-            color: #10b981;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-item a:hover {
-            color: #34d399;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid rgba(16, 185, 129, 0.2);
-            color: #94a3b8;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 48px; }
-            .subtitle { font-size: 24px; }
-            .nav-links { display: none; }
-            .metrics { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toshika Ahlawat | Data Analyst Portfolio</title>
+
+<style>
+/* ===== THEME ===== */
+:root{
+  --navy: #0f172a;
+  --slate: #1e293b;
+  --panel: #1e293b;
+  --paper: #0f172a;
+  --teal: #ff6b9d;
+  --border: #334155;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+}
+
+/* ===== BASE ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0f172a;
+  background-image: 
+    linear-gradient(90deg, rgba(255,107,157,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255,107,157,0.05) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(51,65,85,0.3) 25%, transparent 25%, transparent 75%, rgba(51,65,85,0.3) 75%),
+    linear-gradient(-45deg, rgba(51,65,85,0.3) 25%, transparent 25%, transparent 75%, rgba(51,65,85,0.3) 75%);
+  background-size: 50px 50px, 50px 50px, 100px 100px, 100px 100px;
+  background-position: 0 0, 0 0, 0 0, 50px 50px;
+  color: var(--text);
+  line-height: 1.6;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255,107,157,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(148,163,184,0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+a{
+  color: var(--teal);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover{
+  color: #25b8a3;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:0 20px;
+}
+
+/* ===== NAVBAR (DASHBOARD HEADER) ===== */
+.navbar{
+  position:sticky;
+  top:0;
+  background:var(--navy);
+  border-bottom: 1px solid var(--teal);
+  z-index:1000;
+  box-shadow:0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 0;
+}
+
+.logo{
+  color:white;
+  letter-spacing:0.5px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.nav-links{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a{
+  color:white;
+  font-weight:600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover{
+  color: var(--teal);
+}
+
+.nav-toggle{
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Resume Button in Nav */
+.btn-nav{
+  background: var(--teal);
+  color: var(--navy);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.btn-nav:hover{
+  background: #25b8a3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(45, 212, 191, 0.3);
+}
+
+/* ===== HERO (DATA CANVAS STYLE) ===== */
+.hero{
+  background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.95)),
+    url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%230f172a"/><path d="M10,50 Q30,20 50,50 T90,50" stroke="%23ff6b9d" stroke-width="2" fill="none" opacity="0.2"/><circle cx="20" cy="30" r="3" fill="%23e2e8f0" opacity="0.2"/><circle cx="50" cy="50" r="3" fill="%23e2e8f0" opacity="0.2"/><circle cx="80" cy="30" r="3" fill="%23e2e8f0" opacity="0.2"/></svg>');
+  background-size: cover, 100px 100px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding:80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '📊';
+  position: absolute;
+  top: 50px;
+  right: 10%;
+  font-size: 80px;
+  opacity: 0.2;
+  z-index: 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '📈';
+  position: absolute;
+  bottom: 80px;
+  left: 8%;
+  font-size: 70px;
+  opacity: 0.2;
+  z-index: 0;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-content{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-text h1{
+  color: var(--text);
+  font-size: 48px;
+  margin-bottom: 16px;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-text h1 span{
+  display: block;
+  font-size: 26px;
+  color: var(--teal);
+  font-weight: 500;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.hero-text p{
+  font-size: 17px;
+  margin: 20px 0;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ===== KPI-STYLE STATS ===== */
+.hero-stats{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.stat-card{
+  background: rgba(30,41,59,0.8);
+  border:1px solid var(--border);
+  box-shadow:0px 4px 12px rgba(0,0,0,0.3);
+  color: var(--text);
+  border-radius:12px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.stat-card:hover{
+  transform: translateY(-3px);
+  box-shadow:0px 8px 20px rgba(0,0,0,0.08);
+  border-color: var(--teal);
+}
+
+.stat-card .number{
+  color: var(--teal);
+  font-size: 36px;
+  font-weight: 800;
+  display: block;
+}
+
+.stat-card .label{
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.hero-image{
+  text-align: center;
+}
+
+.hero-image img{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 6px solid var(--teal);
+  box-shadow: 0 10px 40px rgba(255,107,157,0.4), 0 0 60px rgba(255,107,157,0.2);
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.contact-links{
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.btn-primary{
+  background: var(--teal);
+  color: white;
+  border-color: var(--teal);
+}
+
+.btn-primary:hover{
+  background: #ff5089;
+  border-color: #ff5089;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255,107,157,0.4);
+}
+
+.btn-outline{
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--teal);
+}
+
+.btn-outline:hover{
+  background: var(--teal);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== DASHBOARD PANELS ===== */
+section{
+  padding: 70px 0;
+}
+
+.section-header{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title{
+  font-size:32px;
+  margin-bottom:20px;
+  border-bottom:3px solid var(--teal);
+  display:inline-block;
+  padding-bottom: 8px;
+  color: var(--text);
+}
+
+.section-subtitle{
+  font-size: 17px;
+  color: var(--text-muted);
+  opacity: 0.8;
+  margin-top: 12px;
+}
+
+.section-panel{
+  background: rgba(30,41,59,0.6);
+  border-radius:14px;
+  padding:32px;
+  box-shadow:0px 4px 14px rgba(0,0,0,0.3);
+  border:1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== SKILLS ===== */
+.skills-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.skill-category{
+  background: rgba(30,41,59,0.6);
+  border:1px solid var(--border);
+  box-shadow:0px 4px 12px rgba(0,0,0,0.3);
+  border-radius:14px;
+  padding: 28px;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.skill-category:hover{
+  transform: translateY(-3px);
+  box-shadow:0px 8px 22px rgba(255,107,157,0.2);
+  border-color: var(--teal);
+}
+
+.skill-category h3{
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-category ul{
+  list-style: none;
+}
+
+.skill-category li{
+  padding: 8px 0;
+  color: var(--text);
+  position: relative;
+  padding-left: 20px;
+}
+
+.skill-category li::before{
+  content: "▪";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-size: 20px;
+}
+
+/* ===== EXPERIENCE ===== */
+.experience-timeline{
+  max-width: 850px;
+  margin: auto;
+}
+
+.experience-item{
+  background: rgba(30,41,59,0.6);
+  border:1px solid var(--border);
+  box-shadow:0px 4px 12px rgba(0,0,0,0.3);
+  border-radius:14px;
+  padding: 32px;
+  border-left: 5px solid var(--teal);
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.experience-header{
+  margin-bottom: 16px;
+}
+
+.experience-header h3{
+  font-size: 24px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.experience-meta{
+  color: var(--text-muted);
+  font-size: 15px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  opacity: 0.9;
+}
+
+.experience-meta span{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.experience-item ul{
+  margin-left: 20px;
+  color: var(--text);
+}
+
+.experience-item li{
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+/* ===== PROJECT CARDS (ANALYTICS TILES) ===== */
+.projects-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+.project-card{
+  background: rgba(30,41,59,0.6);
+  border:1px solid var(--border);
+  box-shadow:0px 4px 12px rgba(0,0,0,0.3);
+  border-radius:14px;
+  overflow: hidden;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.project-card:hover{
+  transform: translateY(-3px);
+  box-shadow:0px 8px 22px rgba(255,107,157,0.2);
+  border-color: var(--teal);
+}
+
+.project-header{
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color:white;
+  padding: 24px;
+  border-bottom: 2px solid var(--teal);
+}
+
+.project-header h3{
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+.project-body{
+  padding: 24px;
+}
+
+.project-body p{
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.project-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tag{
+  background: rgba(15,23,42,0.8);
+  color: var(--text);
+  border:1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===== EDUCATION & CERTIFICATES ===== */
+.info-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.info-card{
+  background: rgba(30,41,59,0.6);
+  border:1px solid var(--border);
+  box-shadow:0px 4px 12px rgba(0,0,0,0.3);
+  border-radius:14px;
+  padding: 28px;
+  backdrop-filter: blur(10px);
+}
+
+.info-card h3{
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-card ul{
+  list-style: none;
+}
+
+.info-card li{
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.info-card li:last-child{
+  border-bottom: none;
+}
+
+.degree-info{
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.degree-info:last-child{
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.degree-info h4{
+  color: var(--text);
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.degree-info p{
+  color: var(--text-muted);
+  font-size: 15px;
+  margin: 3px 0;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section{
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  border-top: 2px solid var(--teal);
+}
+
+.contact-content{
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.contact-content .section-title{
+  color: white;
+}
+
+.contact-info{
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.contact-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+}
+
+.contact-item a{
+  color: white;
+  font-weight: 500;
+}
+
+.contact-item a:hover{
+  color: var(--teal);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background: #020617;
+  color:white;
+  text-align: center;
+  padding: 24px;
+  font-size: 15px;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .nav-links{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    border-bottom: 1px solid var(--teal);
+  }
+  
+  .nav-links.active{
+    display: flex;
+  }
+  
+  .nav-toggle{
+    display: block;
+  }
+  
+  .hero-content{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  
+  .hero-text h1{
+    font-size: 36px;
+  }
+  
+  .hero-stats{
+    grid-template-columns:1fr;
+  }
+  
+  .hero-image img{
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+  }
+  
+  .contact-links{
+    justify-content: center;
+  }
+  
+  .projects-grid,
+  .skills-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .experience-meta{
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+</style>
 </head>
+
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container nav">
+    <div class="logo">Toshika Ahlawat</div>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
     </div>
+  </div>
+</nav>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">TA</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact" onclick="openModal(); return false;">Contact</a></li>
-            </ul>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Hi, I'm Toshika Ahlawat<span>Data Analyst | Power BI Specialist</span></h1>
+        <p>
+          Transforming complex data into actionable insights with 2+ years of experience in financial services analytics. 
+          I build scalable Power BI dashboards and deliver data-driven solutions that improve business outcomes.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="number">25%</span>
+            <span class="label">Conversion Increase</span>
+          </div>
+          <div class="stat-card">
+            <span class="number">30%</span>
+            <span class="label">Time Saved</span>
+          </div>
+          <div class="stat-card">
+            <span class="number">500+</span>
+            <span class="label">Partners Analyzed</span>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="badge">🚀 Available for Impact Roles</div>
-                <h1>Toshika Ahlawat</h1>
-                <div class="subtitle">Data Analytics | Business Intelligence | Power BI | FinTech</div>
-                <p class="intro">Transforming financial data into strategic advantage. 2+ years driving revenue growth and operational excellence through analytics in high-stakes lending environments.</p>
-                
-                <div class="cta-buttons">
-                    <button class="btn btn-primary" onclick="openModal()">Get In Touch</button>
-                    <a href="#experience" class="btn btn-secondary">View Experience</a>
-                </div>
-
-                <div class="stats">
-                    <div class="stat-card">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Channel Partners Analyzed</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">2+</div>
-                        <div class="stat-label">Years in FinTech</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Data Accuracy Rate</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">30%</div>
-                        <div class="stat-label">Process Time Reduction</div>
-                    </div>
-                </div>
-            </div>
+        <div class="contact-links">
+          <a href="#contact" class="btn btn-primary">📧 Get In Touch</a>
+          <a href="https://linkedin.com/in/toshika-ahlawat-778b0b1b7" class="btn btn-outline">🔗 LinkedIn</a>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>💡 About Me</h2>
-            <p class="section-subtitle">Building data systems that drive decisions</p>
-            <p style="font-size: 18px; color: #94a3b8; line-height: 1.8; max-width: 900px;">
-                I'm a business-focused Data Analyst who believes analytics should drive action, not just insights. With 2+ years in FinTech lending, I've built the analytical infrastructure that powers decision-making for channel partner networks and credit operations. My approach combines technical rigor with business acumen—I architect intelligence systems that reduce churn, accelerate decisions, and improve accuracy across organizations.
-            </p>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2>💼 Professional Experience</h2>
-            <p class="section-subtitle">Driving measurable business outcomes through data-driven decision making</p>
-            
-            <div class="experience-card">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-title">Data Analyst</div>
-                        <div class="exp-company">RuLoans Distribution Services Pvt. Ltd.</div>
-                    </div>
-                    <div class="exp-date">📅 Sep 2023 – Present</div>
-                </div>
-
-                <h4 style="color: #10b981; margin-bottom: 20px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">KEY IMPACT METRICS</h4>
-                <div class="metrics">
-                    <div class="metric">
-                        <div class="metric-value">30%</div>
-                        <div class="metric-label">Faster Reporting</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">500+</div>
-                        <div class="metric-label">Partners Tracked</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">12%</div>
-                        <div class="metric-label">Churn Reduction</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">98%</div>
-                        <div class="metric-label">Data Accuracy</div>
-                    </div>
-                </div>
-
-                <h4 style="color: #10b981; margin: 30px 0 20px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">CORE ACHIEVEMENTS</h4>
-                <div class="achievements">
-                    <div class="achievement">
-                        <span>✅</span>
-                        <span>Architected automated Power BI dashboards reducing reporting cycle time by 30%</span>
-                    </div>
-                    <div class="achievement">
-                        <span>✅</span>
-                        <span>Led analytics for channel partner performance tracking across 500+ partners</span>
-                    </div>
-                    <div class="achievement">
-                        <span>✅</span>
-                        <span>Reduced customer churn by 12% through predictive analytics and early intervention</span>
-                    </div>
-                    <div class="achievement">
-                        <span>✅</span>
-                        <span>Decreased reporting defects by 25% via validation frameworks and data quality checks</span>
-                    </div>
-                    <div class="achievement">
-                        <span>✅</span>
-                        <span>Processed multi-million record SQL datasets with 98%+ accuracy for business-critical decisions</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2>🛠️ Technical & Business Capabilities</h2>
-            <p class="section-subtitle">Tools and expertise that drive results</p>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Analytics & BI</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">DAX</span>
-                        <span class="skill-tag">Power Query</span>
-                        <span class="skill-tag">Excel Advanced</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Business Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Requirement Gathering</span>
-                        <span class="skill-tag">Stakeholder Management</span>
-                        <span class="skill-tag">Process Mapping</span>
-                        <span class="skill-tag">KPI Design</span>
-                        <span class="skill-tag">Product Analytics</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Domain Expertise</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">FinTech</span>
-                        <span class="skill-tag">Lending Operations</span>
-                        <span class="skill-tag">Credit Analytics</span>
-                        <span class="skill-tag">Channel Partner Management</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section>
-        <div class="container">
-            <h2>🎓 Education</h2>
-            <div style="display: grid; gap: 20px; max-width: 800px;">
-                <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 15px; padding: 30px;">
-                    <h3 style="margin-bottom: 10px;">Master of Computer Applications</h3>
-                    <p style="color: #94a3b8; margin-bottom: 5px;">Teerthanker Mahaveer University, Moradabad</p>
-                    <p style="color: #10b981;">2021 – 2023 | GPA: 7.9</p>
-                </div>
-                <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 15px; padding: 30px;">
-                    <h3 style="margin-bottom: 10px;">Bachelor of Computer Applications</h3>
-                    <p style="color: #94a3b8; margin-bottom: 5px;">Teerthanker Mahaveer University, Moradabad</p>
-                    <p style="color: #10b981;">2018 – 2021 | GPA: 8.4</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section style="text-align: center; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);">
-        <div class="container">
-            <h2>Let's Build Something Impactful</h2>
-            <p style="font-size: 20px; color: #94a3b8; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
-                Open to opportunities where data drives strategy and analytics creates competitive advantage.
-            </p>
-            <p style="color: #94a3b8; margin-bottom: 30px;">📍 Noida, India</p>
-            <a href="https://www.linkedin.com/in/toshika-ahlawat-778b0b1b7/" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© 2024 Toshika Ahlawat. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Contact Modal -->
-    <div id="contactModal" class="modal" onclick="if(event.target === this) closeModal()">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <h2 style="margin-bottom: 30px;">📬 Get In Touch</h2>
-            
-            <div class="contact-item">
-                <span class="icon">✉️</span>
-                <div>
-                    <div style="font-size: 12px; color: #94a3b8; margin-bottom: 5px;">Email</div>
-                    <a href="mailto:toshikaahlawat414@gmail.com">toshikaahlawat414@gmail.com</a>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <span class="icon">💼</span>
-                <div>
-                    <div style="font-size: 12px; color: #94a3b8; margin-bottom: 5px;">LinkedIn</div>
-                    <a href="https://www.linkedin.com/in/toshika-ahlawat-778b0b1b7/" target="_blank">Connect on LinkedIn</a>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <span class="icon">💻</span>
-                <div>
-                    <div style="font-size: 12px; color: #94a3b8; margin-bottom: 5px;">GitHub</div>
-                    <a href="https://github.com/toshikaahlawat/" target="_blank">View Projects</a>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <span class="icon">📍</span>
-                <div>
-                    <div style="font-size: 12px; color: #94a3b8; margin-bottom: 5px;">Location</div>
-                    <div style="color: #fff;">Noida, India</div>
-                </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 30px; color: #94a3b8; font-size: 14px;">
-                Open to opportunities in Data Analytics, Business Intelligence, and FinTech
-            </p>
-        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://via.placeholder.com/300/1e293b/e2e8f0?text=Toshika+Ahlawat" alt="Toshika Ahlawat" onerror="this.src='https://ui-avatars.com/api/?name=Toshika+Ahlawat&size=300&background=ff6b9d&color=fff&bold=true&font-size=0.4'">
+      </div>
     </div>
+  </div>
+</section>
 
-    <script>
-        function openModal() {
-            document.getElementById('contactModal').classList.add('active');
-        }
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Passionate about turning data into decisions</p>
+    </div>
+    <div style="max-width:850px; margin:auto; background:rgba(30,41,59,0.6); padding:40px; border-radius:14px; box-shadow:0 4px 14px rgba(0,0,0,0.3); border:1px solid var(--border); backdrop-filter: blur(10px);">
+      <p style="font-size:17px; color:var(--text); line-height:1.8;">
+        I'm a Data Analyst specializing in Power BI, DAX, and data modeling. With expertise in financial services analytics, 
+        I help business teams transform raw data into decision-ready dashboards. My work has directly contributed to improving 
+        loan conversion rates by 25% and reducing reporting time by 30%. I thrive in collaborative environments where data 
+        drives strategic decisions across Product, Sales, and Operations teams.
+      </p>
+      <p style="font-size:17px; color:var(--text-muted); line-height:1.8; margin-top:20px;">
+        📍 Based in Noida, India | Currently working at RuLoans Distribution Services
+      </p>
+    </div>
+  </div>
+</section>
 
-        function closeModal() {
-            document.getElementById('contactModal').classList.remove('active');
-        }
+<!-- SKILLS -->
+<section id="skills" style="background:var(--paper);">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Core Skills</h2>
+      <p class="section-subtitle">Technical expertise & business analytics capabilities</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3>📊 Business Intelligence</h3>
+        <ul>
+          <li>Power BI & Power Query</li>
+          <li>DAX & Data Modeling</li>
+          <li>KPI Frameworks</li>
+          <li>Dashboard Design</li>
+          <li>Data Storytelling</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>📈 Data & Reporting</h3>
+        <ul>
+          <li>MIS Automation</li>
+          <li>Data Validation</li>
+          <li>Funnel Analytics</li>
+          <li>Variance Analysis</li>
+          <li>Performance Tracking</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>💼 Business Analytics</h3>
+        <ul>
+          <li>Loan Analytics</li>
+          <li>Partner Performance</li>
+          <li>Revenue Tracking</li>
+          <li>Process Analytics</li>
+          <li>Stakeholder Management</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>🛠️ Tools & Platforms</h3>
+        <ul>
+          <li>Advanced Excel</li>
+          <li>Power Query & Pivot</li>
+          <li>XLOOKUP & Macros</li>
+          <li>Power BI Desktop & Service</li>
+          <li>SQL & Python</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Professional Experience</h2>
+      <p class="section-subtitle">Driving data-driven decisions in financial services</p>
+    </div>
+    <div class="experience-timeline">
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3>Data Analyst</h3>
+          <div class="experience-meta">
+            <span>🏢 RuLoans Distribution Services Pvt. Ltd.</span>
+            <span>📅 Sep 2023 – Present</span>
+            <span>📍 Noida, India</span>
+          </div>
+        </div>
+        <ul>
+          <li>Designed enterprise-grade Power BI dashboards for leadership covering disbursals, revenue, funnel conversion, and partner productivity</li>
+          <li>Implemented automated data validation and reconciliation frameworks, reducing reporting defects by 25%</li>
+          <li>Analyzed performance of 500+ channel partners, identifying churn risks and improving retention by 12%</li>
+          <li>Migrated manual Excel MIS to real-time Power BI dashboards, cutting reporting turnaround time by 30%</li>
+          <li>Partnered with Product, Sales, Operations, and Leadership to define KPIs, analyze trends, and support strategic decisions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        });
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--paper);">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Key Projects</h2>
+      <p class="section-subtitle">Real-world impact through data analytics</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <h3>🎯 Loan Funnel Optimization</h3>
+        </div>
+        <div class="project-body">
+          <p>Built a comprehensive stage-wise analytics framework to monitor drop-offs across the loan lifecycle, diagnosing onboarding and approval bottlenecks using cohort and conversion analysis.</p>
+          <div class="project-tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">DAX</span>
+            <span class="tag">Conversion Analytics</span>
+          </div>
+          <p style="margin-top:16px; color:var(--teal); font-weight:700;">✓ 25% improvement in conversion rate</p>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h3>📊 Executive MIS Dashboard</h3>
+        </div>
+        <div class="project-body">
+          <p>Automated daily, weekly, and monthly leadership reporting system, replacing manual Excel reconciliation with systematic data validation for faster decision-making.</p>
+          <div class="project-tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">Excel</span>
+            <span class="tag">Automation</span>
+          </div>
+          <p style="margin-top:16px; color:var(--teal); font-weight:700;">✓ 30% reduction in reporting cycle time</p>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h3>🤝 Partner Performance Analytics</h3>
+        </div>
+        <div class="project-body">
+          <p>Comprehensive analysis of 500+ channel partners to identify performance patterns, churn risks, and opportunities for improving partner engagement and retention.</p>
+          <div class="project-tags">
+            <span class="tag">Analytics</span>
+            <span class="tag">Churn Analysis</span>
+            <span class="tag">KPIs</span>
+          </div>
+          <p style="margin-top:16px; color:var(--teal); font-weight:700;">✓ 12% improvement in partner retention</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'all 0.6s ease-out';
-            observer.observe(section);
-        });
-    </script>
+<!-- EDUCATION & CERTIFICATES -->
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Education & Certifications</h2>
+      <p class="section-subtitle">Academic background & professional development</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>🎓 Education</h3>
+        <div class="degree-info">
+          <h4>Master of Computer Applications (MCA)</h4>
+          <p>Teerthanker Mahaveer University, Moradabad</p>
+          <p>2021–2023 | GPA: 7.9</p>
+        </div>
+        <div class="degree-info">
+          <h4>Bachelor of Computer Applications (BCA)</h4>
+          <p>Teerthanker Mahaveer University, Moradabad</p>
+          <p>2018–2021 | GPA: 8.4</p>
+        </div>
+      </div>
+      
+      <div class="info-card">
+        <h3>📜 Certifications</h3>
+        <ul>
+          <li>✓ Power BI Analytics for All Levels</li>
+          <li>✓ SQL for Data Professionals</li>
+          <li>✓ Python for Data Professionals</li>
+          <li>✓ Excel: Mother of BI</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-content">
+      <h2 class="section-title">Let's Connect</h2>
+      <p style="font-size:17px; opacity:0.95; margin-top:16px;">
+        I'm always interested in discussing data analytics opportunities, collaboration, or just chatting about the latest in BI and analytics.
+      </p>
+      <div class="contact-info">
+        <div class="contact-item">
+          📧 <a href="mailto:toshikaahlawat414@gmail.com">toshikaahlawat414@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          📱 <a href="tel:+918273894669">+91-8273894669</a>
+        </div>
+        <div class="contact-item">
+          🔗 <a href="https://linkedin.com/in/toshika-ahlawat-778b0b1b7">LinkedIn</a>
+        </div>
+        <div class="contact-item">
+          🌐 <a href="https://toshikaahlawat.github.io/toshika-portfolio">Portfolio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 Toshika Ahlawat</p>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  const navLinks = document.getElementById('navLinks');
+  navLinks.classList.toggle('active');
+}
+
+// Smooth scrolling for anchor links - NO PREVENT DEFAULT
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      // Close mobile menu if open
+      document.getElementById('navLinks').classList.remove('active');
+    }
+  });
+});
+</script>
+
 </body>
 </html>
