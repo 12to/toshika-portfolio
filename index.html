@@ -251,12 +251,12 @@ a:hover{
 .hero-image img{
   width: 280px;
   max-width: 100%;
-  aspect-ratio: 1/1;        /* keeps perfect square */
+  aspect-ratio: 1/1;
   border-radius: 50%;
   border: 6px solid var(--teal);
   box-shadow: 0 10px 30px rgba(255,107,157,0.25);
-  object-fit: cover;        /* keeps photo filled */
-  object-position: top center; /* keeps your face visible */
+  object-fit: cover;
+  object-position: top center;
   display: block;
   margin: 0 auto;
 }
@@ -442,93 +442,68 @@ section{
   margin: 10px 0;
   line-height: 1.6;
 }
-!-- PROJECTS -->
-<!-- FIX: Each project card is now a separate, properly closed element -->
-<section id="projects" style="background:var(--paper);">
-  <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">Key Projects</h2>
-      <p class="section-subtitle">Real-world impact through data analytics</p>
-    </div>
-    <div class="projects-grid">
 
-      <!-- PROJECT 1: Credit Card Transaction Analysis -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>💳 Credit Card Transaction Analysis</h3>
-        </div>
-        <div class="project-body">
-          <p>
-            Performed SQL-based analysis of credit card transaction data to identify spending patterns, customer behavior, and transaction trends. Built analytical queries to extract actionable insights supporting business decision-making and risk monitoring.
-          </p>
-          <div class="project-tags">
-            <span class="tag">SQL</span>
-            <span class="tag">Data Analysis</span>
-            <span class="tag">Financial Analytics</span>
-          </div>
-          <a href="https://github.com/toshikaahlawat/toshika-portfolio/blob/main/Credit%20Card%20Transaction%20project.sql" 
-             target="_blank" 
-             class="btn btn-outline" 
-             style="margin-top:16px;">
-             🔗 View Project
-          </a>
-          <p style="margin-top:16px; color:var(--teal); font-weight:700;">
-            ✓ Identified high-value customers & spending trends
-          </p>
-        </div>
-      </div>
+/* ===== PROJECT CARDS (ANALYTICS TILES) ===== */
+.projects-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+}
 
-      <!-- PROJECT 2: Loan Funnel Optimization -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>🎯 Loan Funnel Optimization</h3>
-        </div>
-        <div class="project-body">
-          <p>Built a comprehensive stage-wise analytics framework to monitor drop-offs across the loan lifecycle, diagnosing onboarding and approval bottlenecks using cohort and conversion analysis.</p>
-          <div class="project-tags">
-            <span class="tag">Power BI</span>
-            <span class="tag">DAX</span>
-            <span class="tag">Conversion Analytics</span>
-          </div>
-          <p style="margin-top:16px; color:var(--teal); font-weight:700;">✓ 25% improvement in conversion rate</p>
-        </div>
-      </div>
+.project-card{
+  background: rgba(30,41,59,0.6);
+  border:1px solid var(--border);
+  box-shadow:0px 4px 12px rgba(0,0,0,0.3);
+  border-radius:14px;
+  overflow: hidden;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
 
-      <!-- PROJECT 3: Executive MIS Dashboard -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>📊 Executive MIS Dashboard</h3>
-        </div>
-        <div class="project-body">
-          <p>Automated daily, weekly, and monthly leadership reporting system, replacing manual Excel reconciliation with systematic data validation for faster decision-making.</p>
-          <div class="project-tags">
-            <span class="tag">Power BI</span>
-            <span class="tag">Excel</span>
-            <span class="tag">Automation</span>
-          </div>
-          <p style="margin-top:16px; color:var(--teal); font-weight:700;">✓ 30% reduction in reporting cycle time</p>
-        </div>
-      </div>
+.project-card:hover{
+  transform: translateY(-3px);
+  box-shadow:0px 8px 22px rgba(255,107,157,0.2);
+  border-color: var(--teal);
+}
 
-      <!-- PROJECT 4: Partner Performance Analytics -->
-      <div class="project-card">
-        <div class="project-header">
-          <h3>🤝 Partner Performance Analytics</h3>
-        </div>
-        <div class="project-body">
-          <p>Comprehensive analysis of 500+ channel partners to identify performance patterns, churn risks, and opportunities for improving partner engagement and retention.</p>
-          <div class="project-tags">
-            <span class="tag">Analytics</span>
-            <span class="tag">Churn Analysis</span>
-            <span class="tag">KPIs</span>
-          </div>
-          <p style="margin-top:16px; color:var(--teal); font-weight:700;">✓ 12% improvement in partner retention</p>
-        </div>
-      </div>
+.project-header{
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color:white;
+  padding: 24px;
+  border-bottom: 2px solid var(--teal);
+}
 
-    </div>
-  </div>
-</section>
+.project-header h3{
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+.project-body{
+  padding: 24px;
+}
+
+.project-body p{
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.project-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tag{
+  background: rgba(15,23,42,0.8);
+  color: var(--text);
+  border:1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
 
 /* ===== EDUCATION & CERTIFICATES ===== */
 .info-grid{
@@ -568,15 +543,16 @@ section{
 .info-card li:last-child{
   border-bottom: none;
 }
+
 /* --- FIX CERTIFICATION LINK COLOR --- */
 .info-card li a{
-  color: #ffffff !important;   /* pure white */
+  color: #ffffff !important;
   font-weight: 500;
   text-decoration: none;
 }
 
 .info-card li a:hover{
-  color: var(--teal);          /* pink only on hover */
+  color: var(--teal);
   text-decoration: underline;
 }
 
@@ -693,11 +669,11 @@ footer{
   
   .hero-image img{
     width: 250px;
-  height: 250px;
-  margin-top: 20px;
-  object-fit: contain;      /* stops cropping */
-  background: #0f172a;      /* matches your theme */
-  padding: 6px;
+    height: 250px;
+    margin-top: 20px;
+    object-fit: contain;
+    background: #0f172a;
+    padding: 6px;
   }
   
   .contact-links{
@@ -874,6 +850,7 @@ footer{
 </section>
 
 <!-- PROJECTS -->
+<!-- FIX: Each project card is now a separate, properly closed element -->
 <section id="projects" style="background:var(--paper);">
   <div class="container">
     <div class="section-header">
@@ -881,42 +858,39 @@ footer{
       <p class="section-subtitle">Real-world impact through data analytics</p>
     </div>
     <div class="projects-grid">
+
+      <!-- PROJECT 1: Credit Card Transaction Analysis -->
       <div class="project-card">
         <div class="project-header">
+          <h3>💳 Credit Card Transaction Analysis</h3>
+        </div>
+        <div class="project-body">
+          <p>
+            Performed SQL-based analysis of credit card transaction data to identify spending patterns, customer behavior, and transaction trends. Built analytical queries to extract actionable insights supporting business decision-making and risk monitoring.
+          </p>
           <div class="project-tags">
-           <div class="project-card">
-  <div class="project-header">
-    <h3>💳 Credit Card Transaction Analysis</h3>
-  </div>
-  <div class="project-body">
-    <p>
-      Performed SQL-based analysis of credit card transaction data to identify spending patterns, customer behavior, and transaction trends. Built analytical queries to extract actionable insights supporting business decision-making and risk monitoring.
-    </p>
+            <span class="tag">SQL</span>
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Financial Analytics</span>
+          </div>
+          <a href="https://github.com/toshikaahlawat/toshika-portfolio/blob/main/Credit%20Card%20Transaction%20project.sql" 
+             target="_blank" 
+             class="btn btn-outline" 
+             style="margin-top:16px;">
+             🔗 View Project
+          </a>
+          <p style="margin-top:16px; color:var(--teal); font-weight:700;">
+            ✓ Identified high-value customers & spending trends
+          </p>
+        </div>
+      </div>
 
-    <div class="project-tags">
-      <span class="tag">SQL</span>
-      <span class="tag">Data Analysis</span>
-      <span class="tag">Financial Analytics</span>
-    </div>
-
-    <!-- PROJECT LINK BUTTON -->
-    <a href="https://github.com/toshikaahlawat/toshika-portfolio/blob/main/Credit%20Card%20Transaction%20project.sql" 
-       target="_blank" 
-       class="btn btn-outline" 
-       style="margin-top:16px;">
-       🔗 View Project
-    </a>
-
-    <p style="margin-top:16px; color:var(--teal); font-weight:700;">
-      ✓ Identified high-value customers & spending trends
-    </p>
-  </div>
-</div>
+      <!-- PROJECT 2: Loan Funnel Optimization -->
+      <div class="project-card">
+        <div class="project-header">
           <h3>🎯 Loan Funnel Optimization</h3>
         </div>
         <div class="project-body">
-          <div class="project-tags">
-          
           <p>Built a comprehensive stage-wise analytics framework to monitor drop-offs across the loan lifecycle, diagnosing onboarding and approval bottlenecks using cohort and conversion analysis.</p>
           <div class="project-tags">
             <span class="tag">Power BI</span>
@@ -926,7 +900,8 @@ footer{
           <p style="margin-top:16px; color:var(--teal); font-weight:700;">✓ 25% improvement in conversion rate</p>
         </div>
       </div>
-      
+
+      <!-- PROJECT 3: Executive MIS Dashboard -->
       <div class="project-card">
         <div class="project-header">
           <h3>📊 Executive MIS Dashboard</h3>
@@ -941,7 +916,8 @@ footer{
           <p style="margin-top:16px; color:var(--teal); font-weight:700;">✓ 30% reduction in reporting cycle time</p>
         </div>
       </div>
-      
+
+      <!-- PROJECT 4: Partner Performance Analytics -->
       <div class="project-card">
         <div class="project-header">
           <h3>🤝 Partner Performance Analytics</h3>
@@ -956,11 +932,13 @@ footer{
           <p style="margin-top:16px; color:var(--teal); font-weight:700;">✓ 12% improvement in partner retention</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- EDUCATION & CERTIFICATES -->
+<!-- FIX: Added missing closing </div> for info-grid and </section> tag -->
 <section id="education">
   <div class="container">
     <div class="section-header">
@@ -968,6 +946,7 @@ footer{
       <p class="section-subtitle">Academic background & professional development</p>
     </div>
     <div class="info-grid">
+
       <div class="info-card">
         <h3>🎓 Education</h3>
         <div class="degree-info">
@@ -981,27 +960,27 @@ footer{
           <p>2018–2021 | GPA: 8.4</p>
         </div>
       </div>
-      
+
       <div class="info-card">
-  <h3>📜 Certifications</h3>
-  <ul>
-    <li>✓ <a href="https://www.coursera.org/account/accomplishments/verify/MZOOFMNFREO2" target="_blank">
-      Business Analysis: Process Modeling & Requirements Gathering
-    </a></li>
+        <h3>📜 Certifications</h3>
+        <ul>
+          <li>✓ <a href="https://www.coursera.org/account/accomplishments/verify/MZOOFMNFREO2" target="_blank">
+            Business Analysis: Process Modeling & Requirements Gathering
+          </a></li>
+          <li>✓ <a href="https://www.coursera.org/account/accomplishments/verify/HWV3WGTGRRRX" target="_blank">
+            From Excel to Power BI
+          </a></li>
+          <li>✓ <a href="https://www.hackerrank.com/certificates/iframe/a398190f0634" target="_blank">
+            SQL (Basic)
+          </a></li>
+          <li>✓ <a href="https://www.coursera.org/account/accomplishments/verify/7D8RMC4ZJJSV" target="_blank">
+            What is Data Science
+          </a></li>
+        </ul>
+      </div>
 
-    <li>✓ <a href="https://www.coursera.org/account/accomplishments/verify/HWV3WGTGRRRX" target="_blank">
-      From Excel to Power BI
-    </a></li>
-
-    <li>✓ <a href="https://www.hackerrank.com/certificates/iframe/a398190f0634" target="_blank">
-      SQL (Basic)
-    </a></li>
-
-    <li>✓ <a href="https://www.coursera.org/account/accomplishments/verify/7D8RMC4ZJJSV" target="_blank">
-      What is Data Science
-    </a></li>
-  </ul>
-</div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -1043,7 +1022,7 @@ function toggleNav() {
   navLinks.classList.toggle('active');
 }
 
-// Smooth scrolling for anchor links - NO PREVENT DEFAULT
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
@@ -1061,4 +1040,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 </body>
 </html>
-
