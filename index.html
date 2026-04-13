@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Toshika Ahlawat | Data Analyst Portfolio</title>
+<title>Toshika Ahlawat | Business Analyst & Data Analyst Portfolio</title>
 
 <style>
 /* ===== THEME ===== */
@@ -71,7 +71,7 @@ a:hover{
   padding:0 20px;
 }
 
-/* ===== NAVBAR (DASHBOARD HEADER) ===== */
+/* ===== NAVBAR ===== */
 .navbar{
   position:sticky;
   top:0;
@@ -120,7 +120,6 @@ a:hover{
   color: white;
 }
 
-/* Resume Button in Nav */
 .btn-nav{
   background: var(--teal);
   color: var(--navy);
@@ -136,7 +135,7 @@ a:hover{
   box-shadow: 0 4px 8px rgba(45, 212, 191, 0.3);
 }
 
-/* ===== HERO (DATA CANVAS STYLE) ===== */
+/* ===== HERO ===== */
 .hero{
   background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.95)),
     url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%230f172a"/><path d="M10,50 Q30,20 50,50 T90,50" stroke="%23ff6b9d" stroke-width="2" fill="none" opacity="0.2"/><circle cx="20" cy="30" r="3" fill="%23e2e8f0" opacity="0.2"/><circle cx="50" cy="50" r="3" fill="%23e2e8f0" opacity="0.2"/><circle cx="80" cy="30" r="3" fill="%23e2e8f0" opacity="0.2"/></svg>');
@@ -206,7 +205,7 @@ a:hover{
   line-height: 1.7;
 }
 
-/* ===== KPI-STYLE STATS ===== */
+/* ===== KPI STATS ===== */
 .hero-stats{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -305,7 +304,7 @@ a:hover{
   transform: translateY(-2px);
 }
 
-/* ===== DASHBOARD PANELS ===== */
+/* ===== SECTIONS ===== */
 section{
   padding: 70px 0;
 }
@@ -397,6 +396,33 @@ section{
   margin: auto;
 }
 
+/* Company grouping block */
+.company-block {
+  margin-bottom: 32px;
+}
+
+.company-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.company-label h3 {
+  font-size: 20px;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.company-label .tenure {
+  font-size: 14px;
+  color: var(--text-muted);
+  background: rgba(255,107,157,0.1);
+  border: 1px solid rgba(255,107,157,0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
 .experience-item{
   background: rgba(30,41,59,0.6);
   border:1px solid var(--border);
@@ -404,8 +430,14 @@ section{
   border-radius:14px;
   padding: 32px;
   border-left: 5px solid var(--teal);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   backdrop-filter: blur(10px);
+}
+
+/* Secondary role styling */
+.experience-item.role-secondary {
+  border-left-color: #475569;
+  opacity: 0.9;
 }
 
 .experience-header{
@@ -413,9 +445,33 @@ section{
 }
 
 .experience-header h3{
-  font-size: 24px;
+  font-size: 22px;
   color: var(--text);
   margin-bottom: 10px;
+}
+
+/* Role badge */
+.role-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-badge.current {
+  background: rgba(255,107,157,0.2);
+  color: var(--teal);
+  border: 1px solid var(--teal);
+}
+
+.role-badge.previous {
+  background: rgba(71,85,105,0.3);
+  color: var(--text-muted);
+  border: 1px solid #475569;
 }
 
 .experience-meta{
@@ -433,6 +489,15 @@ section{
   gap: 6px;
 }
 
+.experience-item h4 {
+  font-size: 15px;
+  color: var(--teal);
+  margin: 20px 0 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
 .experience-item ul{
   margin-left: 20px;
   color: var(--text);
@@ -443,7 +508,7 @@ section{
   line-height: 1.6;
 }
 
-/* ===== PROJECT CARDS (ANALYTICS TILES) ===== */
+/* ===== PROJECT CARDS ===== */
 .projects-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -505,7 +570,7 @@ section{
   font-weight: 600;
 }
 
-/* ===== EDUCATION & CERTIFICATES ===== */
+/* ===== EDUCATION & CERTS ===== */
 .info-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -544,7 +609,6 @@ section{
   border-bottom: none;
 }
 
-/* --- FIX CERTIFICATION LINK COLOR --- */
 .info-card li a{
   color: #ffffff !important;
   font-weight: 500;
@@ -580,7 +644,7 @@ section{
   margin: 3px 0;
 }
 
-/* ===== CONTACT SECTION ===== */
+/* ===== CONTACT ===== */
 .contact-section{
   background: linear-gradient(135deg, #0f172a, #1e293b);
   color: white;
@@ -718,27 +782,27 @@ footer{
 
       <div class="hero-text">
         <h1>Hi, I'm Toshika Ahlawat
-          <span>Data Analyst</span>
-          <span>📍 Noida, India • Open to BA, DA Roles</span>
+          <span>Business Analyst | Data Analyst</span>
+          <span>📍 Noida, India &nbsp;·&nbsp; Open to BA / DA Roles</span>
         </h1>
         <p>
-          I work at the intersection of business and technology — gathering requirements 
-          from stakeholders, managing CRM workflows, defining KPIs, and translating 
-          business needs into functional specifications for the tech team across 
-          8+ business units at RuLoans.
+          I bridge the gap between business intent and technical execution — turning stakeholder 
+          conversations into clear requirements, and requirements into solutions that get built right. 
+          2.5+ years at RuLoans across requirement gathering, CRM management, compliance auditing, 
+          partner integrations, and Power BI reporting across 8+ business units.
         </p>
         <div class="hero-stats">
           <div class="stat-card">
+            <span class="number">40%</span>
+            <span class="label">Faster Data Retrieval</span>
+          </div>
+          <div class="stat-card">
             <span class="number">25%</span>
-            <span class="label">Defect Reduction</span>
+            <span class="label">Onboarding Bottlenecks ↓</span>
           </div>
           <div class="stat-card">
-            <span class="number">30%</span>
-            <span class="label">Faster Reporting</span>
-          </div>
-          <div class="stat-card">
-            <span class="number">12%</span>
-            <span class="label">Partner Retention ↑</span>
+            <span class="number">15%</span>
+            <span class="label">Disbursal Efficiency ↑</span>
           </div>
         </div>
         <div class="contact-links">
@@ -761,26 +825,26 @@ footer{
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">About Me</h2>
-      <p class="section-subtitle">Business-focused. Data-driven</p>
+      <p class="section-subtitle">Business-focused. Data-driven. Delivery-oriented.</p>
     </div>
     <div style="max-width:850px; margin:auto; background:rgba(30,41,59,0.6); padding:40px; border-radius:14px; box-shadow:0 4px 14px rgba(0,0,0,0.3); border:1px solid var(--border); backdrop-filter: blur(10px);">
-      <p style="font-size:17px; color:var(--text); line-height:1.8;">
-        I'm a Data Analyst with 2+ years of experience in the BFSI sector at RuLoans Distribution
-          Services Pvt. Ltd., where I function as the bridge between business stakeholders and the
-          technology team.
+      <p style="font-size:17px; color:var(--text); line-height:1.8; margin-bottom:16px;">
+        I'm a Business Analyst with 2.5+ years of experience at RuLoans Distribution Services Pvt. Ltd.
+        in the BFSI domain. What I do is deceptively simple in description but complex in practice —
+        I make sure the right problems get solved in the right way.
       </p>
-      <p>
-          My day-to-day involves conducting requirement elicitation sessions, documenting user stories,
-          managing CRM workflows, and translating complex business needs into functional specifications
-          — while also building the dashboards and MIS frameworks that power leadership decisions.
-        </p>
-        <p>
-          I collaborate closely with Product, Sales, Operations, and Leadership to ensure data solutions
-          are aligned with real business needs and drive measurable outcomes in loan conversion,
-          partner performance, and operational efficiency.
-        </p>
-      <p style="font-size:17px; color:var(--text-muted); line-height:1.8; margin-top:20px;">
-        📍 Based in Noida, India | Currently working at RuLoans Distribution Services
+      <p style="font-size:17px; color:var(--text); line-height:1.8; margin-bottom:16px;">
+        My work spans the full BA lifecycle: running structured elicitation sessions, writing BRDs and 
+        FRDs, building user stories, conducting gap analysis, managing CRM workflows, leading 
+        pre-integration compliance audits (VAPT, CICRA, ISO), and supporting UAT through to delivery.
+      </p>
+      <p style="font-size:17px; color:var(--text); line-height:1.8; margin-bottom:16px;">
+        I also work heavily with data — building Power BI dashboards and running funnel and conversion 
+        analysis to ensure the numbers leadership makes decisions on are actually trustworthy. But data,
+        for me, is always a means to an end: better decisions and fewer operational blind spots.
+      </p>
+      <p style="font-size:17px; color:var(--text-muted); line-height:1.8; margin-top:8px;">
+        📍 Based in Noida, India &nbsp;|&nbsp; Currently: Business Analyst at RuLoans Distribution Services
       </p>
     </div>
   </div>
@@ -793,15 +857,28 @@ footer{
       <h2 class="section-title">Core Skills</h2>
       <p class="section-subtitle">Technical expertise & business analytics capabilities</p>
     </div>
-    <div class="skill-category">
+    <div class="skills-grid">
+      <div class="skill-category">
         <h3>🎯 Business Analysis</h3>
         <ul>
-          <li>Requirement Gathering</li>
+          <li>Requirement Gathering & Elicitation</li>
           <li>BRD / FRD Documentation</li>
           <li>User Stories & Process Mapping</li>
           <li>Gap Analysis</li>
           <li>UAT Support</li>
           <li>Stakeholder Management</li>
+          <li>Agile Delivery</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>🔒 Compliance & Integration</h3>
+        <ul>
+          <li>VAPT Audits</li>
+          <li>CICRA Compliance</li>
+          <li>ISO Compliance</li>
+          <li>Pre-Integration Readiness Audits</li>
+          <li>Partner Onboarding Frameworks</li>
+          <li>Cloud Infrastructure Review</li>
         </ul>
       </div>
       <div class="skill-category">
@@ -829,11 +906,11 @@ footer{
       <div class="skill-category">
         <h3>🛠️ Tools & Platforms</h3>
         <ul>
-          <li>Advanced Excel (XLOOKUP, Pivot)</li>
-          <li>SQL</li>
+          <li>Advanced Excel (XLOOKUP, Pivot, Macros)</li>
+          <li>SQL (ETL & Data Modeling)</li>
           <li>Python</li>
           <li>Power BI Desktop & Service</li>
-          <li>Power Query & Macros</li>
+          <li>Power Query</li>
         </ul>
       </div>
     </div>
@@ -845,37 +922,76 @@ footer{
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Professional Experience</h2>
-      <p class="section-subtitle">Driving data-driven decisions in financial services</p>
+      <p class="section-subtitle">2.5+ years driving data-driven decisions in financial services</p>
     </div>
     <div class="experience-timeline">
+
+      <!-- Company Label -->
+      <div class="company-label">
+        <h3>🏢 RuLoans Distribution Services Pvt. Ltd.</h3>
+        <span class="tenure">Sep 2023 – Present · 2 yrs 8 mos</span>
+      </div>
+
+      <!-- ROLE 1: Business Analyst -->
       <div class="experience-item">
         <div class="experience-header">
-          <h3>Data Analyst</h3>
+          <span class="role-badge current">Current Role</span>
+          <h3>Business Analyst</h3>
           <div class="experience-meta">
-            <span>🏢 RuLoans Distribution Services Pvt. Ltd.</span>
-            <span>📅 Sep 2023 – Present</span>
+            <span>📅 Nov 2024 – Present</span>
             <span>📍 Noida, India</span>
           </div>
         </div>
-        <div class="exp-subsection">
-          <h4>🎯 Requirement Gathering & Stakeholder Management</h4>
-          <ul>
-            <li>Act as the primary liaison between business stakeholders (Product, Sales, Operations, Leadership) and the tech team — conducting requirement elicitation sessions, documenting business needs, and translating them into detailed functional specifications for development.</li>
-            <li>Own end-to-end project requirement cycles: facilitated workshops to gather user stories, created workflow diagrams, and managed stakeholder sign-off before handoff to the technology team.</li>
-            <li>Manage CRM system operations — defining data fields, maintaining data integrity, and aligning CRM workflows with evolving business processes across the loan distribution lifecycle.</li>
-            <li>Collaborate with cross-functional teams to define KPIs, funnel logic, and reporting rules for loan disbursals, partner performance, and revenue tracking.</li>
-          </ul>
-        </div>
-        <div class="exp-subsection">
-          <h4>📊 MIS Automation & Reporting</h4>
-          <ul>
-            <li>Designed enterprise-grade Power BI dashboards for leadership covering disbursals, revenue, funnel conversion, and partner productivity across 8+ business units.</li>
-            <li>Implemented automated data validation and reconciliation frameworks, reducing reporting defects by 25%.</li>
-            <li>Analyzed performance of 500+ channel partners, identifying churn risks and improving retention by 12%.</li>
-            <li>Migrated manual Excel MIS to real-time Power BI dashboards, cutting reporting turnaround time by 30%.</li>
-          </ul>
-        </div>
+
+        <h4>🎯 Requirement Gathering & Stakeholder Management</h4>
+        <ul>
+          <li>Act as the primary requirement liaison between business stakeholders (Product, Sales, Operations, Leadership) and the tech team — conducting structured elicitation sessions, documenting user stories, and converting business needs into functional specifications that reduced development rework and misalignment.</li>
+          <li>Own end-to-end project requirement cycles: facilitated workshops, created workflow diagrams, and managed stakeholder sign-off before handoff to the technology team.</li>
+          <li>Manage CRM system operations — defining data fields, configuring workflows, and maintaining data integrity aligned with loan distribution pipelines.</li>
+          <li>Conduct gap analysis and process mapping to continuously improve loan disbursal efficiency by 15% and increase partner productivity.</li>
+        </ul>
+
+        <h4>🔒 Compliance Audits & Partner Integrations</h4>
+        <ul>
+          <li>Conducted formal compliance audits (VAPT, CICRA, and ISO) — coordinating with relevant teams to assess system vulnerabilities, data security controls, and regulatory adherence across organizational processes.</li>
+          <li>Supported product and partner integrations (RuConnect app with Fibe, ICICI HL, Protium) by building analytics and tracking frameworks that reduced onboarding bottlenecks by 25% and accelerated go-to-market timelines.</li>
+          <li>Led pre-integration audits before each partner go-live — consolidating RuLoans policy documentation, cloud infrastructure reports, and compliance inputs to validate readiness and mitigate integration risk.</li>
+        </ul>
+
+        <h4>📊 Reporting & Dashboard Strategy</h4>
+        <ul>
+          <li>Collaborated with Product, Operations, and Leadership to continuously refine KPIs, reporting logic, and dashboard design — ensuring outputs reflected evolving business priorities and stakeholder feedback loops.</li>
+          <li>Support UAT cycles and collaborate cross-functionally for successful feature implementation across 8+ business units.</li>
+        </ul>
       </div>
+
+      <!-- ROLE 2: Data Analyst -->
+      <div class="experience-item role-secondary">
+        <div class="experience-header">
+          <span class="role-badge previous">Previous Role</span>
+          <h3>Data Analyst</h3>
+          <div class="experience-meta">
+            <span>📅 Sep 2023 – Nov 2024</span>
+            <span>📍 Noida, India</span>
+          </div>
+        </div>
+
+        <h4>📊 MIS Automation & Reporting</h4>
+        <ul>
+          <li>Designed and deployed enterprise-grade Power BI dashboards across 8+ business units, replacing manual reporting and reducing data retrieval time by 40% while enabling real-time leadership visibility.</li>
+          <li>Migrated manual Excel MIS to real-time Power BI dashboards, improving reporting efficiency by 30%.</li>
+          <li>Implemented automated data validation and reconciliation frameworks, reducing reporting errors by 25%.</li>
+        </ul>
+
+        <h4>🎯 Requirement Liaison & Analytics</h4>
+        <ul>
+          <li>Acted as requirement liaison between business stakeholders and the tech team — conducting elicitation sessions, documenting user stories, and converting business needs into functional specifications.</li>
+          <li>Supported product and partner integrations (RuConnect app with Fibe, ICICI HL, Protium) by building tracking and analytics frameworks, reducing onboarding bottlenecks by 25%.</li>
+          <li>Streamlined SQL-based ETL and data modeling workflows to ensure high data integrity across complex financial datasets.</li>
+          <li>Analyzed performance of 500+ channel partners, identifying churn risks and improving partner retention by 12%.</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
@@ -885,32 +1001,30 @@ footer{
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Key Projects</h2>
-      <p class="section-subtitle">Real-world impact through data analytics</p>
+      <p class="section-subtitle">Real-world impact through business analysis & data analytics</p>
     </div>
     <div class="projects-grid">
 
-      <!-- PROJECT 1: Credit Card Transaction Analysis -->
+      <!-- PROJECT 1: Partner Integration Framework -->
       <div class="project-card">
         <div class="project-header">
-          <h3>💳 Credit Card Transaction Analysis</h3>
+          <h3>🔗 Partner Integration Framework</h3>
         </div>
         <div class="project-body">
           <p>
-            Performed SQL-based analysis of credit card transaction data to identify spending patterns, customer behavior, and transaction trends. Built analytical queries to extract actionable insights supporting business decision-making and risk monitoring.
+            Built analytics and tracking frameworks for RuConnect app integrations with Fibe, ICICI HL, 
+            and Protium. Led pre-integration compliance audits (VAPT, CICRA, ISO) — consolidating policy 
+            documentation, cloud infrastructure reports, and compliance inputs to validate partner readiness 
+            before go-live.
           </p>
           <div class="project-tags">
-            <span class="tag">SQL</span>
-            <span class="tag">Data Analysis</span>
-            <span class="tag">Financial Analytics</span>
+            <span class="tag">Business Analysis</span>
+            <span class="tag">Compliance Audit</span>
+            <span class="tag">VAPT / CICRA / ISO</span>
+            <span class="tag">Partner Onboarding</span>
           </div>
-          <a href="https://github.com/toshikaahlawat/toshika-portfolio/blob/main/Credit%20Card%20Transaction%20project.sql"
-             target="_blank"
-             class="btn btn-outline"
-             style="margin-top:16px;">
-            🔗 View Project
-          </a>
           <p style="margin-top:16px; color:var(--teal); font-weight:700;">
-            ✓ Identified high-value customers & spending trends
+            ✓ 25% reduction in onboarding bottlenecks
           </p>
         </div>
       </div>
@@ -922,21 +1036,18 @@ footer{
         </div>
         <div class="project-body">
           <p>
-            Built a comprehensive stage-wise analytics framework to monitor drop-offs across the loan lifecycle, diagnosing onboarding and approval bottlenecks using cohort and conversion analysis.
+            Built a comprehensive stage-wise analytics framework to monitor drop-offs across the loan 
+            lifecycle. Conducted gap analysis and process mapping to diagnose onboarding and approval 
+            bottlenecks, using cohort and conversion analysis to drive measurable efficiency gains.
           </p>
           <div class="project-tags">
             <span class="tag">Power BI</span>
             <span class="tag">DAX</span>
+            <span class="tag">Gap Analysis</span>
             <span class="tag">Conversion Analytics</span>
           </div>
-          <a href="https://github.com/toshikaahlawat/toshika-portfolio/blob/main/Credit%20Card%20Transaction%20project.sql"
-             target="_blank"
-             class="btn btn-outline"
-             style="margin-top:16px;">
-            🔗 View Project
-          </a>
           <p style="margin-top:16px; color:var(--teal); font-weight:700;">
-            ✓ 25% improvement in conversion rate
+            ✓ 15% improvement in disbursal efficiency
           </p>
         </div>
       </div>
@@ -948,21 +1059,18 @@ footer{
         </div>
         <div class="project-body">
           <p>
-            Automated daily, weekly, and monthly leadership reporting system, replacing manual Excel reconciliation with systematic data validation for faster decision-making.
+            Automated daily, weekly, and monthly leadership reporting by migrating manual Excel MIS 
+            to real-time Power BI dashboards across 8+ business units. Implemented systematic data 
+            validation frameworks covering disbursals, revenue, funnel conversion, and partner productivity.
           </p>
           <div class="project-tags">
             <span class="tag">Power BI</span>
             <span class="tag">Excel</span>
             <span class="tag">Automation</span>
+            <span class="tag">MIS</span>
           </div>
-          <a href="https://github.com/toshikaahlawat/toshika-portfolio/blob/main/Credit%20Card%20Transaction%20project.sql"
-             target="_blank"
-             class="btn btn-outline"
-             style="margin-top:16px;">
-            🔗 View Project
-          </a>
           <p style="margin-top:16px; color:var(--teal); font-weight:700;">
-            ✓ 30% reduction in reporting cycle time
+            ✓ 40% reduction in data retrieval time
           </p>
         </div>
       </div>
@@ -974,21 +1082,46 @@ footer{
         </div>
         <div class="project-body">
           <p>
-            Comprehensive analysis of 500+ channel partners to identify performance patterns, churn risks, and opportunities for improving partner engagement and retention.
+            Comprehensive analysis of 500+ channel partners to identify performance patterns and churn 
+            risks. Built KPI frameworks to track partner productivity and engagement, enabling leadership 
+            to prioritize high-risk accounts proactively.
           </p>
           <div class="project-tags">
             <span class="tag">Analytics</span>
             <span class="tag">Churn Analysis</span>
             <span class="tag">KPIs</span>
+            <span class="tag">Power BI</span>
+          </div>
+          <p style="margin-top:16px; color:var(--teal); font-weight:700;">
+            ✓ 12% improvement in partner retention
+          </p>
+        </div>
+      </div>
+
+      <!-- PROJECT 5: Credit Card Transaction Analysis -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>💳 Credit Card Transaction Analysis</h3>
+        </div>
+        <div class="project-body">
+          <p>
+            Performed SQL-based analysis of credit card transaction data to identify spending patterns, 
+            customer behavior, and transaction trends. Built analytical queries to extract actionable 
+            insights supporting business decision-making and risk monitoring.
+          </p>
+          <div class="project-tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Financial Analytics</span>
           </div>
           <a href="https://github.com/toshikaahlawat/toshika-portfolio/blob/main/Credit%20Card%20Transaction%20project.sql"
              target="_blank"
              class="btn btn-outline"
              style="margin-top:16px;">
-            🔗 View Project
+            🔗 View on GitHub
           </a>
           <p style="margin-top:16px; color:var(--teal); font-weight:700;">
-            ✓ 12% improvement in partner retention
+            ✓ Identified high-value customers & spending trends
           </p>
         </div>
       </div>
@@ -998,7 +1131,6 @@ footer{
 </section>
 
 <!-- EDUCATION & CERTIFICATES -->
-<!-- FIX: Added missing closing </div> for info-grid and </section> tag -->
 <section id="education">
   <div class="container">
     <div class="section-header">
@@ -1012,12 +1144,12 @@ footer{
         <div class="degree-info">
           <h4>Master of Computer Applications (MCA)</h4>
           <p>Teerthanker Mahaveer University, Moradabad</p>
-          <p>2021–2023 | GPA: 7.9</p>
+          <p>2021–2023 | GPA: 7.9 / 10</p>
         </div>
         <div class="degree-info">
           <h4>Bachelor of Computer Applications (BCA)</h4>
           <p>Teerthanker Mahaveer University, Moradabad</p>
-          <p>2018–2021 | GPA: 8.4</p>
+          <p>2018–2021 | GPA: 8.4 / 10</p>
         </div>
       </div>
 
@@ -1029,9 +1161,12 @@ footer{
           <li>✓ <a href="https://www.hackerrank.com/certificates/iframe/a398190f0634" target="_blank">SQL (Basic) — HackerRank</a></li>
           <li>✓ <a href="https://www.coursera.org/account/accomplishments/verify/7D8RMC4ZJJSV" target="_blank">What is Data Science</a></li>
           <li>✓ Foundations of User Experience (UX) Design</li>
+          <li>✓ Basics of Machine Learning</li>
           <li>✓ Python Essential</li>
+          <li>✓ Web Development</li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
@@ -1042,20 +1177,21 @@ footer{
     <div class="contact-content">
       <h2 class="section-title">Let's Connect</h2>
       <p style="font-size:17px; opacity:0.95; margin-top:16px;">
-        I'm always interested in discussing data analytics opportunities, collaboration, or just chatting about the latest in BI and analytics.
+        I'm always interested in discussing Business Analyst and Data Analyst opportunities, 
+        collaboration, or chatting about BI, analytics, and BFSI.
       </p>
       <div class="contact-info">
         <div class="contact-item">
-          📧 <a href="mailto:toshikaahlawat414@gmail.com">Mail</a>
+          📧 <a href="mailto:toshikaahlawat414@gmail.com">toshikaahlawat414@gmail.com</a>
         </div>
         <div class="contact-item">
           📱 <a href="tel:+918273894669">+91-8273894669</a>
         </div>
         <div class="contact-item">
-          🔗 <a href="https://linkedin.com/in/toshika-ahlawat-778b0b1b7">LinkedIn</a>
+          🔗 <a href="https://linkedin.com/in/toshika-ahlawat-778b0b1b7" target="_blank">LinkedIn</a>
         </div>
         <div class="contact-item">
-          🌐 <a href="https://toshikaahlawat.github.io/toshika-portfolio">Portfolio</a>
+          🌐 <a href="https://toshikaahlawat.github.io/toshika-portfolio" target="_blank">Portfolio</a>
         </div>
       </div>
     </div>
@@ -1065,17 +1201,28 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <p>© 2026 Toshika Ahlawat</p>
+    <p>© 2026 Toshika Ahlawat · Business Analyst & Data Analyst · Noida, India</p>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function toggleNav() {
   const navLinks = document.getElementById('navLinks');
   navLinks.classList.toggle('active');
 }
 
-// Smooth scrolling for anchor links
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'))
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      // Close mobile nav if open
+      document.getElementById('navLinks').classList.remove('active');
+    }
+  });
+});
+</script>
+</body>
+</html>
